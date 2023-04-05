@@ -13,6 +13,72 @@ h1 {
     line-height: 66px;
     color: #75B79E;
 }
+
+/* Configuraçao das Cartas*/
+
+.card {
+    width: 200px;
+    height: 250px;
+    position: relative;
+  }
+
+  .face {
+    width: 100%;
+    height: 100%;
+    background-color: #A7E9AF;
+    background-image: url(../imagens/back.png);
+    background-size: 85%;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px rgba(0,0,0,.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    backface-visibility: hidden;
+    transition: all .5s;
+    transform-style: preserve-3d;
+  }
+
+  .back-face {
+    transform: rotateY(180deg);
+    background-image: inherit;
+  }
+
+  .card:hover .back-face {
+    transform: rotateY(0deg);
+  }
+
+  .card:hover .front-face {
+    transform: rotateY(-180deg);
+  }
+  .cartaVirada {
+    width: 100%;
+  }
+  
+/* Fim Configuraçao das Cartas*/
+
+/* conteiner das cartas */
+
+.cartas {
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.cartas div {
+  margin: 10px;
+}
+.content {
+
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* conteiner das cartas */
+
 @media (max-width:540px) {
     h1 {
         font-size: 36px;
