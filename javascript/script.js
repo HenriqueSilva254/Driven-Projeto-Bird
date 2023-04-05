@@ -9,7 +9,7 @@ function iniciarJogo (){
     const div = document.querySelector('.cartas')
     let contador = 0;
     while(contador < numeroCartas){
-        div.innerHTML += "<div class='card' data-test='card'><div data-test='face-up-image' class='front-face face'></div><div data-test='face-down-image'git class='back-face face'><img class='cartaVirada' src='./imagens/metalparrot.gif' alt=''></div></div>"
+        div.innerHTML += "<div class='card' data-test='card'><div data-test='face-down-image' class='front-face face'></div><div data-test='face-up-image'git class='back-face face'><img class='cartaVirada' src='./imagens/metalparrot.gif' alt=''></div></div>"
         
         contador++;
         console.log()    
