@@ -11,7 +11,7 @@ const imagensCartas = [
 
 
 const cartas = [];
-
+let fimdeJogo = 0
 
 
 iniciarJogo ()
@@ -33,6 +33,7 @@ function iniciarJogo (){
         cartas.push(`data-test='card'><div class='front-face face'><img data-test='face-down-image' src='../imagens/back.png' alt=''></div><div data-par='${imagensCartas[contador]}' class='back-face face'><img data-test='face-up-image' class='cartaVirada' data-valor='${imagensCartas[contador]}' src='./imagens/${imagensCartas[contadorimg]}.gif' alt=''></div>`)
         contador = contador + 2;
         contadorimg++;
+        fimdeJogo = fimdeJogo +2;
         console.log(contador)
     }
     
@@ -49,10 +50,11 @@ function iniciarJogo (){
 
     }
 
-    
+    console.log(cartas.length)
 
 }
-
+    let jogadas = 0
+    let paresCertos = 0
     let primeiraCarta =  '';
     let segundaCarta = '';
     let cartaFront1= '';
@@ -60,6 +62,9 @@ function iniciarJogo (){
     let travarCarta= false
 
       function virarCarta(carta) {
+
+        jogadas++
+
         if(travarCarta === true){return false}
         const carta1 = carta.querySelector(".front-face");
         carta1.classList.add("front");
@@ -91,6 +96,13 @@ function iniciarJogo (){
             DesvirarCarta()
         }else {
             resetarCartas()
+
+            paresCertos = paresCertos + 2
+            console.log(jogadas)
+            console.log(paresCertos)
+                        
+            fimJogo()
+            
         }
         
        }
@@ -119,5 +131,11 @@ function iniciarJogo (){
             cartaFront1 = '';
             cartaFront2 = '';
             travarCarta = false
-       }
+        }
 
+    function fimJogo(){
+    if(paresCertos === fimdeJogo ){
+        setTimeout(() => {alert(`Você ganhou em ${jogadas} jogadas`)}, 1000)
+        
+    }
+}
