@@ -56,11 +56,11 @@ h1 {
     background-image: inherit;
   }
 
-  .card:hover .back-face {
+  .back {
     transform: rotateY(0deg);
   }
 
-  .card:hover .front-face {
+  .front {
     transform: rotateY(-180deg);
   }
   .cartaVirada {
