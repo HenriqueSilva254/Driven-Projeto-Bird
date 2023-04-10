@@ -9,11 +9,10 @@ const imagensCartas = [
 'tripletsparrot',
 'unicornparrot']
 
-
-const cartas = [];
+var cartas = [];
 let fimdeJogo = 0
-
-
+let segundos = 0
+let idinterval;
 iniciarJogo ()
 
 function iniciarJogo (){
@@ -52,6 +51,7 @@ function iniciarJogo (){
 
     console.log(cartas.length)
 
+    idinterval = setInterval(cronometro, 1000)
 }
     let jogadas = 0
     let paresCertos = 0
@@ -135,7 +135,40 @@ function iniciarJogo (){
 
     function fimJogo(){
     if(paresCertos === fimdeJogo ){
-        setTimeout(() => {alert(`Você ganhou em ${jogadas} jogadas`)}, 1000)
+        setTimeout(() => {alert(`Você ganhou em ${jogadas} jogadas! A duração do jogo foi de ${segundos} segundos!`)
+        reiniciar()
+        }, 1000)
+        clearInterval(idinterval)
+        
         
     }
+
+    
+}
+function cronometro(){
+        let tempo = document.querySelector('.cronometro')
+        segundos++;
+        tempo.innerHTML = segundos
+        
+   
+}
+function reiniciar(){
+    var condicao = prompt(`Deseja recomeçar? digite apenas sim ou não`)
+    if(condicao === "sim"){
+        resetarCartas()
+        resetarTela()
+        iniciarJogo()
+        
+    }else if(condicao === "não"){
+
+    }
+
+}
+function resetarTela(){
+    let apagar = document.querySelector('.cartas')
+    apagar.innerHTML = "" 
+    cartas = [];
+    let fimdeJogo = 0
+    let segundos = 0
+    
 }
